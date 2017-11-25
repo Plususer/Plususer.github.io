@@ -7,7 +7,7 @@
     enable_page_level_ads: true
   });
 </script>
-  <title>Droidworld</title>
+  <title>Droidworld: Portal for My Kernels, Roms, Apps and all things for Android</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
@@ -55,7 +55,7 @@
         <img class="paperclip" src="style/paperclip.png" alt="paperclip" />
         <div class="sidebar">
           <h3>Recent Post</h3>
-          <p>HOW TO: Flash Stock Firmware In Samsung Galaxy Core Prime G360H.....<br /><a href="http://nikitsharma15.github.io/Uncategorized.html">read more</a></p>
+          <p>HOW TO: Flash Stock Firmware In Samsung Galaxy Core Prime G360H.....<br /><a href="http://Plususer.github.io/Uncategorized.html">read more</a></p>
         </div>
       </div>
       <div id="content">
@@ -67,7 +67,7 @@ A Custom kernel for Android devices</p>
         <p>Enhance your phone with useful features, superior performance and longer battery life.
 
 Vegito is stable, safe and easy to install..</a>.</p>
-        <p>Lets give it a try ? <a href="http://nikitsharma15.github.io/Downloads.html">Here</a> But its available only for some android devices which are mentioned below.</p>
+        <p>Lets give it a try ? <a href="http://Plususer.github.io/Downloads.html">Here</a> But its available only for some android devices which are mentioned below.</p>
         <h2>Supported Devices</h2>
         <p>Vegito kernel is available for these following devices:</p>
         <ul>
@@ -135,14 +135,96 @@ sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl li
 <li>make -j4</li>
 <h3>Congratulations you'r successfully done.</h3>
 <p></p>
-<h2>What's New ?</h2>
-        <ul>
-          <li>Now powered by AROMA Installer.</li>
-          <li>Faux Sound Control 2.0 - A sound hack driver by faux123 ported to sprd codecs by me</li>
-          <li>IntelliPlug- Great balance between battery life and performance</li>
-          <li>Frandom driver- Fast Kernel Number Generator</li>
-          <li>Built Using Linaro- 5.2 Toolchain along with Cortex A7 compiler optimizations.</li>
-         </ul>
+  <h1>How To Install Vegito Kernel ?</h1>
+<ul>
+<p>This simple guide will teach you How To Install Vegito Kernel on android devices which is supported by vegito.So what are you waiting for ? let's do this.</p>
+
+<h2>Pre-Requirements</h2>
+<ul>
+<li>More than 60% battery on your device.</li>
+<li>Make Sure that Your device has TWRP Installed (athene) Because You have to flash the kernel.zip from the TWRP menu.</li>
+
+<h2>Warning!</h2>
+<li>Do NOT flash this over other custom kernels!</li>
+<li>You should only flash Vegito over the kernel that came with your ROM!!!</li>
+<ul>
+<li>Download the Kernel file and transfer them to the internal memory or external memory of your device.</li>
+<li>Then Boot your device into TWRP Recovery</li>
+<li>Once you are in TWRP Recovery, create a backup of your current ROM from the TWRP Recovery main menu</li>
+<li>Then Go to install Option (main menu TWRP) then select the Vegito kernel Zip file and swipe to flash<li>
+<li>After the installation completes, go to the main menu of TWRP and reboot system</li>
+<li>The Boot will take few minutes donâ€™t panic.After your device booted up you can see VegitoKernel in the settingâ€“>>about Phone</li>
+<p></p>
+<h1>Guide for how to build an AOSP ( Android Open Source Project ) ROM for yourself.</h1>
+<p>Here are the steps to build AOSP ROM from source. This guide is showing you how to build an AOSP ROM on your own. It is kick start for making things on your own way.
+
+This guide assumes you have basic knowledge of linux and linux system configuration.</p>
+
+<h1>Prerequisites</h1>
+
+<h2>Quote:</h2>
+
+<li>Ubuntu OS 14.04 lts</li>
+<li>You must have a 64-bit environment.</li>  
+<li>Patience...lots and lots of patience.</li>
+<li>A Linux computer should have 4 GB RAM or more, otherwise build errors may occur.</li>
+<h2></h2>
+
+<h2>Install Repo and configure Git</h2>  
+<li>Repo is Google's tool for working with Git, a version control system, which is incredibly robust. Run the below commands in your terminal to properly configure git</li>
+
+  <li>mkdir ~/bin</li>
+  <li>PATH=~/bin:$PATH</li>
+  <li>curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo</li>
+  <li>chmod a+x ~/bin/repo</li>
+  <li>git config --global user.name "Your name"</li>
+  <li>git config --global user.email youremail@yourdomain.com</li>
+
+<p>After this, you will need to make a working directory for your ROM, where you will house its source. To do this, come up with a name for the folder and create it<p>
+
+mkdir ~/foldername (eg. mkdir ~/AOSP)
+cd ~/foldername (eg. cd ~/AOSP)  
+
+<h2>Configure and sync the source</h2>
+<p>Here is where you are going to go download the source for the ROM you want to build.</p>
+
+<li>repo init -u https://android.googlesource.com/platform/manifest -b android-8.0.0_r34</li> <li>After you init the repo, you need to sync the source by running this command</li>
+<li>repo sync</li>
+
+<li></li>
+
+<h2>Install Java</h2>
+<li>sudo add-apt-repository ppa:webupd8team/java</li>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install openjdk-8-jdk</li>
+<li>Done. Now reboot your system.</li>
+<h1></h>
+<h2>Want to speed up the build process?</h2>
+<li>export USE_CCACHE=1</li>
+<li>export CCACHE_DIR=path-to-your-cache-directory</li>
+<p></p>
+
+<h2>Setting up building environment.</h2>
+
+<li>Install the required packages</li>
+
+<li>sudo apt-get install git-core gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 openjdk-6-jdk tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386 git</li>
+
+<li>Now, it's a good idea to start fresh.. So go ahead and reboot the system..</li>
+</p>
+
+<h2>Build it</h2>
+<p>Alright here comes the moment of truth, it is time to run the build. Assuming you haven't done anything wrong as this point, it should be pretty simple to build the ROM using this command</p>
+
+<li>./build envsetup.sh</li>
+<li>brunch device (eg. brunch angler or brunch shamu)</li>
+
+<p>Depending on your machine, this could be an hour process or a four hour process. At the end, you will have a message saying that the make was successfully completed and you should have a flashable zip!</p>
+
+<p>If you want to compile again, it is recommended that you run the command make clobber in between those two commands above.</p>
+
+<h3>Congratulations you'r successfully done.</h3>
+<p></p>
       </div>
     </div>
     <div id="footer">
